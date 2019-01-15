@@ -11,7 +11,7 @@ import os
 import sklearn.model_selection
 w = 100
 h = 100
-c = 3
+c = 1
 path = 'image_data'
 MODEL_SAVE_PATH = "model/"
 MODEL_NAME = "model_of_digital"
@@ -28,7 +28,7 @@ loss = tf.losses.sparse_softmax_cross_entropy(labels= y_,logits = logits)
 tf.summary.scalar('loss',loss)
 
 # learning_rate = tf.train.exponential_decay(0.01, global_step,2,0.99,staircase=True)
-learning_rate = 0.000002
+learning_rate = 0.0001
 train_op = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss,global_step = global_step)
 correct_prediction = tf.equal(tf.cast(tf.argmax(logits,1),tf.int32),y_)
 acc = tf.reduce_mean(tf.cast( correct_prediction,tf.float32 ))

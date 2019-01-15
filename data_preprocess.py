@@ -50,7 +50,7 @@ def get_batch_data(images,label,batch_size=3,num_epochs =10,w=100,h=100,c=100,us
     label=input_queue[1]
     image_contents=tf.read_file(input_queue[0])
 
-    image_contents=tf.image.decode_jpeg(image_contents,channels=3)
+    image_contents=tf.image.decode_jpeg(image_contents,channels=c)
 
     image_contents = tf.image.resize_images(image_contents,[w,h])
     # image_contents=tf.image.resize_image_with_crop_or_pad(image_contents,w,h)
